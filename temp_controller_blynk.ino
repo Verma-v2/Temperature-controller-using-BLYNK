@@ -35,8 +35,8 @@ int ledPin = 13;
 
 //variable setup
 float dstemp; 
-int mintemp = 23; // minimum temperature
-int maxtemp = 29; // Maximum temperature
+int mintemp = 23; // Default minimum temperature
+int maxtemp = 29; // Default Maximum temperature
 BlynkTimer timer;
 //wifi
 ESP8266 wifi(&EspSerial);
