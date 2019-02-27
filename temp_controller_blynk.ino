@@ -1,10 +1,38 @@
+/*@@ -0,0 +1,21 @@
+MIT License
+
+Copyright (c) 2019 Gyanendra Verma
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+* we are not responsible for any physical damage caused by the user or to the user. Saftey precautions are mandotery while tesing 
+* We recommande user's to test the code in care of mentors.
+* while using ac load please beware, a mistake could cause a big accident.
+* you are free to use the code as you want, but if you are using it don't forget to give credit :)
+*/
+// Libraries find them on github and blynk plateform. 
 #define BLYNK_DEBUG
 #define BLYNK_PRINT Serial
 #include <ESP8266_Lib.h>
 #include <BlynkSimpleShieldEsp8266.h>
 #include <SoftwareSerial.h>
 #include<LiquidCrystal.h>
-#include <DallasTemperature.h>
+#include <DallasTemperature.h> //Temperature sensor library.
 
 
 
@@ -18,7 +46,7 @@ int powled= 8;
 int led= 3;
 WidgetLCD lcd1(V2);
 
-WidgetTerminal terminal(V1);
+WidgetTerminal terminal(V1); // V1 and same other pins starting from V are virtual pins. Read about blynk virtual pins to know more.
 
 int ledPin = 13;
 
@@ -27,18 +55,21 @@ float dstemp;
 int mintemp = 23;
 int maxtemp = 29;
 BlynkTimer timer;
+//wifi
 ESP8266 wifi(&EspSerial);
 #define ESP8266_BAUD 115200
+
+/// temperature sensor
 OneWire oneWire(ONE_WIRE_BUS); 
 DallasTemperature sensors(&oneWire);
 
 //Wifi Setup
-char auth[] = "04365696abd448aaa36b13fa94aecc23";
+char auth[] = "Your_blynk_auth_token"; //Token Here;
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
-char ssid[] = "Aiotronix";
-char pass[] = "0900gyan500";
+char ssid[] = "Your WIFI ssid"; 
+char pass[] = "Your WIFI Password";
 
 /*****************************************************************************Void Setup*********************************************************/
 void setup() {
